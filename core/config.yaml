@@ -1,0 +1,15 @@
+model_class: SmallConvUncRegressor
+paths:
+  model: "models/baseline_conv1d.pt"
+  aux: "models/baseline_norm_calib.npz"
+  train_data: "data_training/train_single_transit_stellar.npz"
+  sensitivity_sets: "sensitivity_sets"
+  test_data: "data_training/test_realistic_2.npz" 
+  radius_csv: "candidates_27_/candidates_multi_transit.csv"
+data_generation:
+  n_samples: 400000
+  seed: 1234
+output:
+  sensitivity_dir: "sensitivity_results_v9"
+normalizer:
+  log_duration: true   
