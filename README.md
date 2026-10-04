@@ -16,7 +16,7 @@ Each parameter comes with a 1σ uncertainty predicted by the network and calibra
 
 ## Installation
 
-Tested with Python 3.10. Use versions listed on requirements.txt
+Use versions listed on requirements.txt
 
 Light curves are downloaded from MAST with `lightkurve`, and stellar parameters are queried from the TIC (MAST) and Gaia DR3. 
 
