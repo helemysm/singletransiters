@@ -4,8 +4,8 @@ from pathlib import Path
 import pandas as pd
 import lightkurve as lk
 
-from vetting.param_inference_core import pick_lightcurve, preprocess_lc, _run_inference_on_lc
-from vetting.compute_param_single import _planet_radius_rjup, _rjup_to_rearth
+from computeparams.param_inference_core import pick_lightcurve, preprocess_lc, _run_inference_on_lc
+from computeparams.compute_param_single import _planet_radius_rjup, _rjup_to_rearth
 
 REQUIRED_COLUMNS = ["tic", "sector", "t0"]
 RESULT_COLUMNS = [

@@ -1,4 +1,4 @@
-model_class: SmallConvUncRegressor
+model_class: SingleTransitCNN
 paths:
   model: "models/baseline_conv1d.pt"
   aux: "models/baseline_norm_calib.npz"

@@ -41,7 +41,7 @@ class SoftArgmaxDtHead(nn.Module):
 
 
 
-class SmallConvUncRegressor(nn.Module):
+class SingleTransitCNN(nn.Module):
     
     def __init__(self, in_ch: int, d_out: int = 3,
                  log_sigma_min: float = -8.0, log_sigma_max: float = 4.0,

@@ -6,13 +6,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import lightkurve as lk
 
-from vetting.param_inference_core import (
+from computeparams.param_inference_core import (
     pick_lightcurve,
     preprocess_lc,
     _pick_t0_interactively,
     _run_inference_on_lc,
 )
-from vetting.compute_radius import compute_planet_radius_from_tic, R_JUPITER_IN_R_SUN, R_EARTH_IN_R_SUN
+from computeparams.compute_radius import compute_planet_radius_from_tic, R_JUPITER_IN_R_SUN, R_EARTH_IN_R_SUN
 
 SUMMARY_COLUMNS = ["sector", "transit", "depth_ppm", "duration_h", "t_mid_pred_btjd", "radius_rjup", "radius_rearth"]
 
