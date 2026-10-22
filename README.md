@@ -91,15 +91,3 @@ paths:
   model: "models/baseline_conv1d.pt"
   aux: "models/baseline_norm_calib.npz"
 ```
-
-Paths are relative to the repository root.
-
-## Repository layout
-
-```
-core/       configuration, target normalizer, uncertainty calibration
-model/      network architecture
-models/     trained weights
-vetting/    inference: compute_param_single.py, predict_csv.py,
-            param_inference_core.py, compute_radius.py
-```
