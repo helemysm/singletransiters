@@ -2,15 +2,7 @@ import math
 import pathlib
 import numpy as np
 from tqdm import tqdm
-
-try:
-    import batman
-except ImportError as e:
-    raise SystemExit(
-        "batman not found. Install with: pip install batman-package\n"
-        f"Original error: {e}"
-    )
-
+import batman
 
 def sample_log_uniform(rng, lo, hi):
     lo = float(lo); hi = float(hi)
