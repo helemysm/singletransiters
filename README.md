@@ -11,8 +11,6 @@ Given a TIC ID (or a FITS light curve) and the approximate transit time, it retu
 - corrected mid-transit time (BTJD)
 - planet radius in Jupiter and Earth radii, from the stellar radius in the TIC (or Gaia DR3 if the TIC has none)
 
-Each parameter comes with a 1σ uncertainty predicted by the network and calibrated on synthetic data. Inference takes a fraction of a millisecond per transit, so it scales to large candidate samples.
-
 
 ## Installation
 
