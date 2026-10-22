@@ -80,18 +80,6 @@ python -m vetting.predict_csv my_targets.csv
 python -m vetting.predict_csv my_targets.csv --out results.csv --plot
 ```
 
-The results are written to `<input>_pred.csv`, or to the file given with `--out`, with these columns added:
-
-| Column | Description |
-|---|---|
-| `depth_ppm`, `sigma_depth` | Transit depth and its uncertainty (ppm) |
-| `duration_h`, `sigma_duration` | Transit duration and its uncertainty (hours) |
-| `dtcorr_h`, `sigma_dtcorr` | Offset between the given `t0` and the predicted center (hours) |
-| `t_mid_pred_btjd` | Predicted mid-transit time (BTJD) |
-| `radius_rjup`, `radius_rearth` | Planet radius in Jupiter and Earth radii |
-| `error` | Why the row failed, if it did (e.g. no light curve for that sector) |
-
-A row that fails does not stop the run. Only SPOC light curves are searched.
 
 ## Configuration
 
