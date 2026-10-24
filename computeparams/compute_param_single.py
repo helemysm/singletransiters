@@ -124,7 +124,7 @@ def _pick_transits_on_overview(tic, lcs_by_sector):
     sectors = sorted(lcs_by_sector)
     n = len(sectors)
 
-    # Beyond 6 sectors a single column runs off the screen, fix..
+    # size of plot
     ncols = 1 if n <= 6 else (2 if n <= 12 else 3)
     nrows = math.ceil(n / ncols)
     panel_h = 2.6 if ncols > 1 else 3.0
@@ -211,7 +211,7 @@ def _run_for_sector(lc, t0_arg, sector_label=None, tic_id=None,
 
 def _print_summary(tic_label, rows):
     if not rows:
-        print("No sector produced a prediction — nothing to summarize.")
+        print("No sector produced a prediction.")
         return
 
     display_rows = []
@@ -272,7 +272,7 @@ def main():
             _print_summary(f"TIC {args.tic}", summary_rows)
             return
 
-        print(f"No --sector given, browsing every available sector for TIC {args.tic}…")
+        print(f"No --sector given, browsing every available sector for TIC {args.tic}")
         sr, by_sector = _search_all_sectors(args.tic)
         if len(sr) == 0:
             print("No light curve found for this TIC.")
