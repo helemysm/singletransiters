@@ -35,10 +35,8 @@ def trapezoid_model(t, depth, t0, T14, tau):
     flat_half = max(half - tau, 0.0) # half-width of the flat bottom
 
     f = np.zeros_like(t)
-    # flat bottom: |dt| <= flat_half  -> -depth
     in_flat = dt <= flat_half
     f[in_flat] = -depth
-    # flanks: flat_half < |dt| < half -> linear ramp
     if tau > 0:
         in_ramp = (dt > flat_half) & (dt < half)
         
@@ -69,9 +67,7 @@ def fit_transit(t_days, flux):
     t0_0   = float(np.clip(t0_0, win_lo, win_hi))
     tau_frac0 = 0.1
 
-    # t0 bounded to a neighborhood of the box-init (intersected with the window).
-    # The box already locates the event via the BLS grid; the trapezoid only refines the shape around it, it does not re-search the position -> avoids
-    # escaping to the edges.
+    # t0 bounded to a neighborhood of the box-init
     t_lo = max(win_lo, t0_0 - T0_SEARCH_D)
     t_hi = min(win_hi, t0_0 + T0_SEARCH_D)
 
