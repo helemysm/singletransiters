@@ -75,7 +75,7 @@ class TargetNormalizer:
         ys_internal = ys.copy()
         if log_mask.any():
             cols = np.where(log_mask)[0]
-            # guard against non-positive values, just in case
+            # non-positive values,... just in case
             if (ys[:, cols] <= 0).any():
                 raise ValueError(
                     "log_mask flags columns with values <= 0; "
