@@ -10,7 +10,7 @@ from core.losses import gaussian_nll, beta_nll
 
 from core.normalizer import TargetNormalizer
 from core.calibrate import predict_normalized, fit_sigma_calibrator
-from core.metrics import eval_metrics, pretty_print_metrics
+from core.metrics import eval_metrics, print_metrics
 
 
 NPZ_PATH        = cfg["paths"]["train_data"]
@@ -154,8 +154,8 @@ def main():
     if best_state is not None:
         model.load_state_dict(best_state)
 
-    pretty_print_metrics("VAL (uncalibrated)", eval_metrics(model, val_loader, normalizer, DEVICE, calib=None))
-    pretty_print_metrics("TEST (uncalibrated)", eval_metrics(model, test_loader, normalizer, DEVICE, calib=None))
+    print_metrics("VAL (uncalibrated)", eval_metrics(model, val_loader, normalizer, DEVICE, calib=None))
+    print_metrics("TEST (uncalibrated)", eval_metrics(model, test_loader, normalizer, DEVICE, calib=None))
 
     mu_n_val, log_sigma_n_val, y_n_val = predict_normalized(model, val_loader, normalizer, DEVICE)
     calib = fit_sigma_calibrator(mu_n_val, log_sigma_n_val, y_n_val, lr=0.05, steps=500).to(DEVICE)
@@ -163,8 +163,8 @@ def main():
     print("\nCalibrator log_scale:", calib.log_scale.detach().cpu().numpy())
     print("Calibrator scale factors:", torch.exp(calib.log_scale).detach().cpu().numpy())
 
-    pretty_print_metrics("VAL (calibrated)", eval_metrics(model, val_loader, normalizer, DEVICE, calib=calib))
-    pretty_print_metrics("TEST (calibrated)", eval_metrics(model, test_loader, normalizer, DEVICE, calib=calib))
+    print_metrics("VAL (calibrated)", eval_metrics(model, val_loader, normalizer, DEVICE, calib=calib))
+    print_metrics("TEST (calibrated)", eval_metrics(model, test_loader, normalizer, DEVICE, calib=calib))
 
     # save
     os.makedirs(os.path.dirname(SAVE_MODEL_PATH), exist_ok=True)
