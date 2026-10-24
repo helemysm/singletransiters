@@ -56,7 +56,7 @@ def eval_metrics(model, loader, normalizer, device: str, calib=None):
     }
 
 
-def pretty_print_metrics(tag: str, m: dict):
+def print_metrics(tag: str, m: dict):
     names = ["depth_ppm", "duration_h", "dtcorr_h"]
     print(f"\n== {tag} ==")
     print(f"N = {m['N']} | NLL = {m['nll']:.4f}")
